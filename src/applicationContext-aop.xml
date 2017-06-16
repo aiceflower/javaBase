@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+	http://www.springframework.org/schema/jee 
+	http://www.springframework.org/schema/jee/spring-jee-2.5.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	>
+	
+	<!-- 测试自动扫描 -->
+	<context:component-scan base-package="learn.frame.spring.aop.annotation" />
+	
+	<!-- 切面 -->
+	<bean id="testAspect" class="learn.frame.spring.aop.TestAspect" />
+	<!-- 业务类 -->
+	<bean id="aspectBiz" class="learn.frame.spring.aop.AspectBiz" />
+	
+	<!-- 如果无法运行请去掉execution中的com. -->
+	<!-- 基于配置的aop的实现 -->	
+	<aop:config>
+		<!-- test base -->
+		<aop:aspect id="testAspectAop" ref="testAspect">
+			<aop:pointcut id="testPointcutAop"  expression="execution(* com.learn.frame.spring.aop.*Biz.*(..))" />
+			<!-- 方法运行前前 -->
+			<aop:before method="before" pointcut-ref="testPointcutAop"/>
+			<!-- 方法运行前后  这个方法的第一个参数必须是ProceedingJoinPoint类型-->
+			<aop:around method="doBasicProfiling" pointcut-ref="testPointcutAop"/>
+			<!-- 方法运行且返回后，如果抛出异常则还没有返回 -->
+			<aop:after-returning method="afterReturning" pointcut-ref="testPointcutAop"/>
+			<!-- 抛出异常后 -->
+			<aop:after-throwing method="throingException"  pointcut-ref="testPointcutAop"/>
+			<!-- 方法运行后 -->
+			<aop:after method="after" pointcut-ref="testPointcutAop"/>
+		</aop:aspect>
+	</aop:config>
+	<!-- test param -->
+	<aop:config>
+		<aop:aspect id="testAspectParamAop" ref="testAspect">
+			<aop:around method="roundParam" pointcut="execution(* learn.frame.spring.aop.AspectBiz.bizParam(String,int))
+			and args(str,it)"/>
+		</aop:aspect>
+	</aop:config>
+	<!-- test -->
+	<aop:config>
+		<aop:aspect id="testAspectFit" ref="testAspect">
+			<aop:declare-parents types-matching="learn.frame.spring.aop.*(+)"
+				implement-interface="learn.frame.spring.aop.Fit"
+				default-impl="learn.frame.spring.aop.FilterImpl"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="testAopAnnotationBiz" class="learn.frame.spring.aop.annotation.TestAopAnnotationBiz"/>
+	<bean id="annotationAspect" class="learn.frame.spring.aop.annotation.AnnotationAspect"/>
+</beans>

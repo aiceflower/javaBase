@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/cglib-src-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/cglib-nodep-2.1_3.jar" sourcepath="lib/cglib-src-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aop-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-jdbc-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-orm-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-acl-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-cas-client-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-core-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-core-tiger-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-taglibs-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/spring-tx-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-web-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/spring-webmvc-2.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3.2.7.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jta.jar"/>
+	<classpathentry kind="lib" path="lib/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,8 @@
+/applicationContext-aop.xml
+/applicationContext-ioc.xml
+/applicationContext.xml
+/config.txt
+/hibernate.cfg.xml
+/jdbc.properties
+/learn/
+/log4j.properties

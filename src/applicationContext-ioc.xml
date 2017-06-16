@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+	http://www.springframework.org/schema/jee 
+	http://www.springframework.org/schema/jee/spring-jee-2.5.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-autowire="constructor"
+	>
+	<!--default-autowire="constructor">-->
+	<!--default-autowire="byType"> 测试byType自动装配，跟bean的id无关-->
+	<!--  default-autowire="byName"> 测试byName自动装配-->
+	<!-- default-lazy-init="true"> 测试初始化-->
+	
+	
+	<!-- 测试加载properties文件  方式一 继承 PropertyPlaceholderConfigurer，重写processProperties方法 ，这种方式可以通过代码获取内容-->
+	<bean id="propertyPlaceholder" class="learn.frame.spring.properties.PropertyPlaceholder">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:config.txt</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 加载properties 方式一 ，这种方式只用且表达式，或@Value获取内容 
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>-->
+	<!-- 方式二 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<!-- 测试加载properties文件  方式三,这种方式还需要研究
+	<util:properties id="const" location="classpath:jdbc.properties"/>-->
+	
+	<!-- 测试bean的三种创建方式 -->
+	<!-- 1构造器创建，需要有默认无参构造器 -->
+	<bean name="p1" class="learn.frame.spring.entity.People">
+		<property name="name" value="${jdbc.username}" />
+		<property name="age" value="17"/>
+	</bean>
+	<!-- 2  静态工厂创建-->
+	<bean id="calendar"  class="java.util.Calendar" factory-method="getInstance"/>
+	<!-- 3 实例工厂 借用了2
+	<bean id="fac" class="java.util.Calendar"  factory-method="getInstance"/>-->
+	<bean name="cdate" factory-bean="calendar" factory-method="getTime" />
+	
+	<!-- 测试延迟加载 -->
+	<bean name="lazyInit" class="learn.frame.spring.entity.TestLazyInit" lazy-init="true" />
+	
+	
+	
+	<!-- 测试构造器注入 -->
+	<bean id="peopleService" class="learn.frame.spring.impl.PeopleServiceImpl">
+		<constructor-arg ref="peopleDao" ></constructor-arg>
+	</bean>	
+	
+	<!-- 测试setter注入 -->
+	<bean id="peopleService1" class="learn.frame.spring.impl.PeopleServiceImpl">
+		<property name="peopleDao" ref="peopleDao" />
+	</bean>	
+	<bean id="peopleDao" class="learn.frame.spring.impl.PeopleDaoImpl"></bean>
+	
+	<!-- 测试作用域 -->
+	<bean id="dateSingleton" class="java.util.Date" scope="singleton" />
+	<bean id="datePrototype" class="java.util.Date" scope="prototype" />
+	
+	<!-- 测试生命周期 初始化 -->
+	<bean id="people" class="learn.frame.spring.entity.People" /><!-- init-method="toString" -->
+	
+	<!-- 测试Aware ApplictionContextAware、BeanNameAware 
+	<bean id="testApplicationContext" class="learn.frame.spring.TestApplicationContext"/>
+	<bean id="testBeanName" class="learn.frame.spring.TestBeanName"/>-->
+	
+	<!-- 测试自动装配  如果通过byName自动装配只需要在service中申明与dao的id（autoWiringDao） 一样的set方法就可以了-->
+	<bean id="autoWiringDao" class="learn.frame.spring.dao.AutoWiringDao" />
+	<bean id="autoWiringService" class="learn.frame.spring.service.AutoWiringService" />
+	
+	<!-- 测试资源Resource -->
+	<bean id= "testResource" class="learn.frame.spring.TestResource"/>
+	
+	<!-- 测试自动扫描 -->
+	<context:component-scan base-package="learn.frame.spring.annotation" />
+	
+</beans>
