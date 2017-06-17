@@ -25,10 +25,9 @@ public class Array<T>{
 	 */
 	public static <T> List<T> arrayToList(T[] arr) {
 		List<T> arraylist = new ArrayList<T>();
+		//List<T> asList = Arrays.asList(arr);asList不可以添加新的元素
 		boolean b = Collections.addAll(arraylist, arr);
-		if (!b)
-			return null;
-		return arraylist;
+		return b?arraylist:null;
 	}
 
 	/**
