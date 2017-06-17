@@ -1,7 +1,6 @@
 package learn.design.pattern.factory;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +16,7 @@ import java.util.Properties;
  */
 public class PropertiesReader {
 	
+	@SuppressWarnings("unused")
 	public static Map<String, String> getProperties(){
 		Properties properties = new Properties();
 		Map<String, String> map = new HashMap<String, String>();
@@ -52,6 +52,7 @@ public class PropertiesReader {
 		}
 		return map;
 	}
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		PropertiesReader pr = new PropertiesReader();
 		Map<String, String> properties = pr.getProperties();

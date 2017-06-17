@@ -7,6 +7,7 @@ package learn.design.pattern.observer;
 public class ConcreteObserver implements Observer{
 
 	//¹Û²ìÕß×´Ì¬
+	@SuppressWarnings("unused")
 	private String observerState;
 	
 	/**

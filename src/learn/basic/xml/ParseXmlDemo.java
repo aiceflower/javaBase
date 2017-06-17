@@ -15,6 +15,7 @@ import org.dom4j.io.SAXReader;
  *
  */
 public class ParseXmlDemo {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 		/*
 		 * ½âÎö¹ý³Ì£º

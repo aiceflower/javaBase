@@ -9,7 +9,9 @@ import java.sql.Statement;
 public class JDBCUtils {
 	private static String driver = "";
 	private static String url = "";
+	@SuppressWarnings("unused")
 	private static String user = "";
+	@SuppressWarnings("unused")
 	private static String password = "";
 
 	// 注册数据库的驱动

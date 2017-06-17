@@ -2,7 +2,6 @@ package learn.design.pattern.proxy.dynamic;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
-import java.util.Arrays;
 
 import learn.design.pattern.proxy.statick.Car;
 import learn.design.pattern.proxy.statick.Moveable;
@@ -13,6 +12,7 @@ import learn.design.pattern.proxy.statick.Moveable;
  *
  */
 public class TimeTest {
+	@SuppressWarnings("unused")
 	public static void main(String[] args){
 		Car c = new Car();
 		InvocationHandler h = new TimeHandler(c);

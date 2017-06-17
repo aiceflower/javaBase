@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 @Aspect
 public class AnnotationAspect {
@@ -74,6 +73,7 @@ public class AnnotationAspect {
 	 * @param str 目标方法的第一个参数，名字要一致
 	 * @param it 目标方法的第二个参数，名字要一致
 	 */
+	@SuppressWarnings("unused")
 	@Around("anyMethod() && args(str,it)")
 	public void roundParam(ProceedingJoinPoint pjp,String str,int it){
 		System.out.println("。。。annotation"+str+"。。。"+it+"。。。up");

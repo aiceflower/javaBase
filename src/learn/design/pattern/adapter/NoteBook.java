@@ -1,7 +1,5 @@
 package learn.design.pattern.adapter;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class NoteBook {
 	private PlugInterFace plug;

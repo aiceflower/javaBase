@@ -3,6 +3,7 @@ package learn.basic.reflect;
 import java.lang.reflect.Method;
 
 public class MethodReflect {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args){
 		//获取方法print(int,int)
 		//要获取方法，就是要获取类的信息，获取类的信息就要获取类的类类型

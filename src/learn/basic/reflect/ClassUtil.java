@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+@SuppressWarnings("rawtypes")
 public class ClassUtil {
 	public static void main(String [] args){
 		printClassMessage(String.class);

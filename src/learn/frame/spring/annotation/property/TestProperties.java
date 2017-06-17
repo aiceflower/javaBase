@@ -15,6 +15,7 @@ public class TestProperties {
 	private String password;
 	
 //	@Value("${jdbc.driver}")
+	@SuppressWarnings("unused")
 	private String driver;
 	
 //	@Value("${jdbc.url}")

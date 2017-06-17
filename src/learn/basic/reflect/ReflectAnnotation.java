@@ -1,9 +1,7 @@
 package learn.basic.reflect;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
 import org.junit.Test;
@@ -19,6 +17,7 @@ import org.junit.Test;
  *
  */
 public class ReflectAnnotation {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
 	public void test() throws NoSuchMethodException, SecurityException {
 		// ..........获取类上的注�?.................

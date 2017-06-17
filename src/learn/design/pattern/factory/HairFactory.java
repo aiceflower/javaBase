@@ -1,7 +1,6 @@
 package learn.design.pattern.factory;
 
 import java.util.Map;
-import java.util.Properties;
 
 
 /**

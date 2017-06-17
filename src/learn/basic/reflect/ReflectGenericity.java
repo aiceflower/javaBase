@@ -13,6 +13,7 @@ class A<T> {
 	/**
 	 * 反射泛型信息
 	 */
+	@SuppressWarnings("rawtypes")
 	public A() {
 		// 在这里获取子类传递的泛型信息，要得到�?个Class!
 		Class class1 = this.getClass();

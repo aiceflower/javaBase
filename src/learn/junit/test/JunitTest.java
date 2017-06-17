@@ -12,6 +12,7 @@ public class JunitTest {
 	 * test beforeClass
 	 * 所有方法执行前前执行一次,且只执行一次
 	 */
+	@SuppressWarnings("unused")
 	@BeforeClass
 	public static void beforeClass(){
 		if(1==2)

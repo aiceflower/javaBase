@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class GenericsInJava {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 		ArrayList al = new ArrayList();
 		ArrayList<String> list = new ArrayList<String>();

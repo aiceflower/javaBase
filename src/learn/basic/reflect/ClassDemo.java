@@ -1,6 +1,7 @@
 package learn.basic.reflect;
 
 public class ClassDemo {
+	@SuppressWarnings({ "rawtypes", "unused" })
 	public static void main(String args[]){
 		//Foo的实例对象如何表示
 		Foo foo = new Foo();//foo就表示出来了

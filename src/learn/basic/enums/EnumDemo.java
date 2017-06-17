@@ -1,7 +1,5 @@
 package learn.basic.enums;
 
-import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 public enum EnumDemo {
 	hosuccess(1, "已经交接"), hofailure(0, "未交接	");

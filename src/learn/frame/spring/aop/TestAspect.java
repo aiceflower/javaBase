@@ -55,6 +55,7 @@ public class TestAspect {
 	 * @param str 目标方法的第一个参数，名字要一致
 	 * @param it 目标方法的第二个参数，名字要一致
 	 */
+	@SuppressWarnings("unused")
 	public void roundParam(ProceedingJoinPoint pjp,String str,int it){
 		System.out.println("。。。"+str+"。。。"+it+"。。。up");
 		try {

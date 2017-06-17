@@ -1,5 +1,6 @@
 package learn.basic.reflect;
 public class Office{
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args){
 		/*if("Word".equals(args[0])){
 			Word w = new Word();

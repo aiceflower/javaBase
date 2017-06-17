@@ -1,6 +1,5 @@
 package learn.frame.spring.entity;
 
-import java.util.Calendar;
 
 public class People {
 	private String name ;
