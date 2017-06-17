@@ -36,10 +36,10 @@ public class ECDSA {
 	public static String src = "imooc security ecdsa";
 
 	public static void main(String[] args) {
-		ECDSA();
+		ecdsa();
 	}
 
-	public static void ECDSA() {
+	public static void ecdsa() {
 		// ≥ı ºªØ√‹‘ø
 		try {
 			KeyPairGenerator keyPairGenerator = KeyPairGenerator

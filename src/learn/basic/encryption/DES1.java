@@ -9,7 +9,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.DESedeKeySpec;
-import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 
 public class DES1 {
 	public static String src = "imooc des";
