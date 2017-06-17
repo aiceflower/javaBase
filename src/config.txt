@@ -1,2 +1,2 @@
 test=resource
-url=jdbcim
+url=jdbc
