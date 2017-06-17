@@ -10,7 +10,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import learn.basic.array.Array;
 import learn.basic.string.StringUtil;
+import learn.basic.xml.Book;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,6 +24,35 @@ import org.w3c.dom.Text;
 
 
 public class JunitTest {
+	@Test
+	public void testBinarySearch(){
+		String arrs[] = {"java","c++"};
+		int res = Arrays.binarySearch(arrs, "java");
+		System.out.println(res>=0);
+	}
+	@Test
+	public void testArrayToList(){
+
+		Book b1= new Book();
+		b1.setName("张三");
+		b1.setYear("2017");
+		Book b2= new Book();
+		b2.setName("李四");
+		b2.setYear("2018");
+		Book b3= new Book();
+		b3.setName("王五");
+		b3.setYear("2019");
+		Book books[] = {b1};
+		Array<Book> a = new Array<Book>(Book.class);
+		Book[] books2 = a.arraycopy(books,2);
+		books2[1] = b2;
+		books2[2]  = b3;
+		Book[] books3 = Array.shuffle(books2);
+		for (Book book : books3) {
+			System.out.println(book.getName());
+		}
+	}
+	
 	@Test
 	public void test1() {
 		String randomString = StringUtil.getNoRepeatRandomString(20);

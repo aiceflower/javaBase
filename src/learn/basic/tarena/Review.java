@@ -507,7 +507,6 @@ public class Review {
 
 	// randomAccessFile
 	public static void testRandomAccessFile() throws IOException {
-		@SuppressWarnings("resource")
 		// "r":只读, "rw":读写
 		RandomAccessFile raf = new RandomAccessFile("abc.txt", "rw");// 抛出异常FileNotFoundException
 		raf.write(1);
@@ -535,6 +534,7 @@ public class Review {
 	}
 
 	// io
+	@SuppressWarnings("resource")
 	public static void testIo() throws IOException, ClassNotFoundException {
 		// 文件流,低级流,用于从文件中读写数据的流
 		FileInputStream fis = new FileInputStream(new File("in.txt"));// 抛出FileNotFoundException

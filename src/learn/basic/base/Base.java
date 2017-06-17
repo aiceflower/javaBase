@@ -8,6 +8,7 @@ package learn.basic.base;
  */
 public class Base {
 	/** 计算机中的浮点数不是连续的，相信的两个浮点数之间的距离叫做最小精度单位Unit of Least Precision ULP */
+	@SuppressWarnings("unused")
 	private String STRICTFP = "strictifp关键字表示被其修饰的方法按照严格的单精度浮点运算";
 	
 	/**

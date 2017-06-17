@@ -2,13 +2,9 @@ package learn.basic.xml;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -140,6 +136,7 @@ public class XMLParserTest {
 	 * @throws JDOMException 
 	 * @throws URISyntaxException 
 	 */
+	@SuppressWarnings({ "unused", "unchecked" })
 	public static void jdom2Xml() throws JDOMException, IOException, URISyntaxException{
 		//创建一个SAXBuilder对象
 		SAXBuilder saxBuilder = new SAXBuilder();
@@ -181,6 +178,7 @@ public class XMLParserTest {
 	/**
 	 * 使用dom4j方式解析xml
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void dom4j2Xml(){
 		SAXReader saxReader = new SAXReader();
 		try {

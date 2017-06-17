@@ -31,6 +31,7 @@ public class AnnotationTest {
 
 	MyEnum c();
 
+	@SuppressWarnings("rawtypes")
 	Class d();
 
 	MyAnno2 e();

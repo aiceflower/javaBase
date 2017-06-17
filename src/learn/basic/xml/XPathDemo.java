@@ -24,12 +24,14 @@ public class XPathDemo {
 			 * 这里的集合不要使用泛型，因为检索回来的内容不一定都是标签(Element),也有可能
 			 * 是属性(Attribute),这都要看xpath检索的内容确定
 			 */
+			@SuppressWarnings("unchecked")
 			List<Element> list = doc.selectNodes("/list/emp[age>30]/salary");
 			
 			for(Element ele : list){
 				System.out.println(ele.getText());
 			}
 			
+			@SuppressWarnings("unchecked")
 			List<Element> list1 = doc.selectNodes("/list/emp[gender='男' and age>18]/name");
 			for(Element ele : list1){
 				System.out.println(ele.getText());

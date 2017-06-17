@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -122,7 +121,7 @@ public class XMLWriteText {
 	 * sax方式生成xml
 	 */
 	public static void saxWriteXml(){
-		List<Book> sax2Xml = XMLParserTest.sax2Xml();
+		//List<Book> sax2Xml = XMLParserTest.sax2Xml();
 		//1.创建一个SAXTransformerFactory
 		SAXTransformerFactory stf = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
 		TransformerHandler handler;
