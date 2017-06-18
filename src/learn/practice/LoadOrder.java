@@ -1,6 +1,6 @@
 package learn.practice;
 
-public class 加载顺序 {
+public class LoadOrder {
 	{
 		weight = 2.1;
 		System.out.println("我是代码块");
@@ -16,8 +16,8 @@ public class 加载顺序 {
 	public static void main(String[] args) {
 		B.main(args); //这里只讨论成员变量
 		//静态代码块只执行一次，而代码块每创建一个实例，就会执行一次。
-		加载顺序 j1 = new 加载顺序();
-		加载顺序 j2 = new 加载顺序();
+		LoadOrder j1 = new LoadOrder();
+		LoadOrder j2 = new LoadOrder();
 		System.out.println(j1.weight);//定义变量的时候先初始化，然后再执行代码块中的赋值，再在构造器中赋值
 		//但是定义变量与代码块的执行顺序与书写顺序一致！！！
 		//定义与代码块在通过编译之后，在执行的时候都会按顺序提到构造器中执行
@@ -27,9 +27,10 @@ public class 加载顺序 {
 		//		System.out.println("我是代码块");
 		//		  weight = 2.0;
 		//		}
-		System.out.println(加载顺序.heigth);//原理同上
+		System.out.println(LoadOrder.heigth);//原理同上
 		//加载顺序
 		//父类静态代码块-->子类静态代码块-->父类代码块-->父类构造方法-->子类代码块-->子类构造方法
+		System.out.println(j2.weight);
 	}
 }
 
@@ -50,6 +51,7 @@ class A{
 }
 
 class B extends A{
+	@SuppressWarnings("unused")
 	private static int c = 1;
 	static{
 		System.out.println("B的静态代码块");
