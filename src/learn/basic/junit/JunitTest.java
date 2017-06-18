@@ -1,7 +1,11 @@
 package learn.basic.junit;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,9 +29,29 @@ import org.w3c.dom.Text;
 
 public class JunitTest {
 
+	/**
+	 * 测试set转换为map
+	 */
+	@Test
+	public void testSetToMap(){
+		Set<String> set = new HashSet<String>();
+		set.add("zhangsan");
+		set.add("lisi");
+		set.add("wangwu");
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		int i = 0;
+		for (String string : set) {
+			map.put(i, string);
+			i++;
+		}
+		System.out.println(map);
+	}
+	/**
+	 * 测试null的关系
+	 */
 	@Test
 	public void testNull(){
-		System.out.println(null==null);
+		System.out.println(null==null);//true
 	}
 	@SuppressWarnings("unused")
 	@Test
