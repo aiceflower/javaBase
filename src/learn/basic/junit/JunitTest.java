@@ -24,6 +24,47 @@ import org.w3c.dom.Text;
 
 
 public class JunitTest {
+
+	@Test
+	public void testNull(){
+		System.out.println(null==null);
+	}
+	@SuppressWarnings("unused")
+	@Test
+	public void testBoolean(){
+		boolean b = true;
+		boolean f = false;
+		//System.out.println(b|true);//true
+		//System.out.println(b|=false);//true
+		//System.out.println(f|=true);//true
+		//System.out.println(f|=false);//false
+	}
+	
+	/**
+	 * 测试操作符
+	 */
+	@Test
+	public void testOperate(){
+		int i = 1;
+		double j = 2.3;
+		//i = i+j 报错
+		i +=j;//正常
+		System.out.println(i);
+	}
+	/**
+	 * 测试string转换为int
+	 */
+	@Test
+	public void testStringToInt(){
+		String str = "123";
+		int i = Integer.valueOf(str);
+		int j = Integer.parseInt(str);
+		System.out.println(i);
+		System.out.println(j);
+	}
+	/**
+	 * 测试查找数组中是否包含指定内容
+	 */
 	@Test
 	public void testBinarySearch(){
 		String arrs[] = {"java","c++"};
