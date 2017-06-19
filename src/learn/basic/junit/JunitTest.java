@@ -1,10 +1,13 @@
 package learn.basic.junit;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -15,6 +18,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import learn.basic.array.Array;
+import learn.basic.math.MathUtil;
 import learn.basic.string.StringUtil;
 import learn.basic.xml.Book;
 
@@ -28,6 +32,48 @@ import org.w3c.dom.Text;
 
 
 public class JunitTest {
+	
+	/**
+	 * 测试创建List
+	 */
+	@SuppressWarnings("serial")
+	@Test
+	public void testList(){
+		List<String> list;
+		//定长
+		list = Collections.singletonList("1");
+		//list.add("2");//报错
+		System.out.println(list);
+		list = Arrays.asList("x","y","z");
+		//list.add("t");//摄氏
+		System.out.println(list);
+		//变长
+		list = new ArrayList<String>(){
+			{
+				add("zhangsan");
+				add("lisi");
+				add("wangwu");
+			}
+		};
+		list.add("zhaoliu");
+		System.out.println(list);
+		list = new ArrayList<String>(Arrays.asList("aa","bb","cc"));
+		list.add("dd");
+		System.out.println(list);
+	}
+	
+	/**
+	 * java生成指定范围的随机数
+	 */
+	@Test
+	public void testRandom(){
+		int min = 5;
+		int max = 10;
+		Random r = new Random();
+		for (int i = 0; i < 1000; i++) {
+			System.out.println(MathUtil.randomInt(5));
+		}
+	}
 
 	/**
 	 * 测试set转换为map
@@ -108,7 +154,7 @@ public class JunitTest {
 		b3.setName("王五");
 		b3.setYear("2019");
 		Book books[] = {b1};
-		Array<Book> a = new Array<Book>(Book.class);
+		Array a = new Array();
 		Book[] books2 = a.arraycopy(books,2);
 		books2[1] = b2;
 		books2[2]  = b3;

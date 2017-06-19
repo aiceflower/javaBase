@@ -1,0 +1,38 @@
+地址:
+	https://github.com/giantray/stackoverflow-java-top-qa
+第一天:2017-06-17
+	问题:2017-06-17
+		1.java += 操作符实质
+		2.将InputStream转换为String
+		3.将数组转换为List
+		4.如何遍历map对象
+		5.public，protected，private，不加修饰符。有什么区别呢？
+		6.如何测试一个数组是否包含指定的值？
+		7.重写（Override）equlas和hashCode方法时应考虑的问题
+		8.从一个多层嵌套循环中直接跳出
+		9.如何将String转换为Int
+		10.如何分割（split）string字符串
+	读后感:2017-06-18
+		1.+=为运算符，会把运算结果强制转换为需要赋值的类型 int i = 0; i+=4.0;  i = (int)(i+4.0);
+		2.使用String s = new Scanner(is).useDelimiter().next();
+		3.Arrays.asList(arr);或 Collections.addAll(list,arr);
+		4.1):map.entrySet();2):map.keySet();map.get(key);3):map.entrySet();entry.iterator();
+		5.访问权限不同，public任何类，包中都可访问;protected同包或子类可以访问;private本类可以访问;默认同包可以访问
+		6.1):把数组转换为List再使用List的contains(String)方法;2):使用Arrays的binarySearch方法
+		7.自反性、对称性、伟递性、一致性。//理论上讲（编程语言、数学层面） equals() 定义了对象的相等关系（自反性、对称性、传递性）（有点抽象，更详细说明，请参考javadoc) 。 另外，它还具有一致性（也就是说，如果一个对象没有修改，那么对象的equals方法，应总是返回相同的值），此外，o.equals(null)应当总是返回false。 hashCode()（javadoc)也必须具备一致性的（也就是说，如果equal的结果没有变，那么hashcode()也应总是返回相同的值）
+		8.使用标号 outer: for(...){break outer;}
+		9.1):Integer.parsInt(str);//返回类型int。2):Integer.valueOf(str);//返回类型Integer
+		10.str.split(REG);
+第二天：2017-06-18
+	问题:2017-06-18
+		1.在java中如何对比（compare）string
+		2.Map<Key,Value>基于Value值排序
+		3.HashMap和Hashtable的区别
+		4.如何便捷地将两个数组合到一起
+		5.Java 是否支持默认的参数值
+		6.Java 产生指定范围的随机数
+		7.JavaBean 到底是什么
+		8.wait()和sleep()的区别
+		9.能否在一个构造器( constructor )中调用另一个构造器
+		10.finally 代码块总会被执行么
+	读后感:

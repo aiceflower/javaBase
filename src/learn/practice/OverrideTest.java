@@ -13,7 +13,7 @@ public class OverrideTest {
 	}
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		OverrideTest ot = new OverrideTest();
+		OverrideTest ot = new OverrideTest(); 
 		//ot.info(null, 3);这句话编译器无法确定调用的是哪一个方法
 		//子类的private的方法如果与父类的private方法一模一样，不算重写	
 	}
