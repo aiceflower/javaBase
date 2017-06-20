@@ -1,8 +1,16 @@
 package learn.basic.junit;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +26,9 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import learn.basic.array.Array;
+import learn.basic.enums.EnumDemo;
+import learn.basic.enums.EnumSingleton;
+import learn.basic.enums.EnumUtils;
 import learn.basic.math.MathUtil;
 import learn.basic.string.StringUtil;
 import learn.basic.xml.Book;
@@ -32,6 +43,77 @@ import org.w3c.dom.Text;
 
 
 public class JunitTest {
+	@Test
+	public void testTime() throws ParseException{
+		 SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+		    String str3 = "1927-12-31 23:54:07";  
+		    String str4 = "1927-12-31 23:54:08";
+//		    String str5 = "1927-12-31 23:54:07";  
+//		    String str6 = "1927-12-31 23:54:08";
+		    Date sDt3 = sf.parse(str3);  
+		    Date sDt4 = sf.parse(str4);  
+		    long ld3 = sDt3.getTime() /1000;  
+		    long ld4 = sDt4.getTime() /1000;
+		    System.out.println(ld4-ld3);//353,仅限jdk1.6，ld6-ld5=1
+	}
+	/**
+	 * 测试创建文件并向文件中写内容
+	 */
+	@Test
+	public void testCreateFile(){
+		List<String> lines = Arrays.asList("one line","two line");
+		Path file = Paths.get("C:\\createFile.txt");
+		try {
+			Files.write(file, lines, Charset.forName("utf-8"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("write end.");
+	}
+	
+	/**
+	 * 测试创建数组
+	 */
+	@SuppressWarnings("unused")
+	@Test
+	public void testCreateArray(){
+		//基本数据类型
+		int ints1[] = new int[3];
+		int ints2[] = {1,2,3};
+		int ints3[] = new int[]{1,2,3};
+		//String
+		String strs1[] = new String[3];
+		String strs2[] = {"a","b","c"};
+		String strs3[] = new String[]{"a","b","c"};
+		//对象
+		Book books1[] = new Book[3];
+		Book books2[] = {new Book(),new Book(),new Book()};
+		Book books3[] = new Book[]{new Book(),new Book(),new Book()};
+	}
+	
+	/**
+	 * 测试枚举获取童单例
+	 */
+	@Test
+	public void testEnumSingleton(){
+		/*
+		 * 在枚举中我们明确了构造方法限制为私有，在我们访问枚举实例时会执行构造方法，
+		 * 同时每个枚举实例都是static final类型的，也就表明只能被实例化一次。
+		 * 也就是说，因为每个enum中的枚举常量被保证只会被实例化一次，所以我们的singleton也被保证实例化一次。
+		 * 枚举进行比较可以用equals也可用==，因为每个枚举常量只有一个实例，一般用==
+		*/
+		Book b1 = EnumSingleton.singleton.getBook();
+		Book b2 = EnumSingleton.singleton.getBook();
+		System.out.println(b1==b2);
+	}
+	/**
+	 * 测试根据String获取枚举对象
+	 */
+	@Test
+	public void testEnum(){
+		EnumDemo hand = EnumUtils.getEnumFromString(EnumDemo.class, "hosuccess");
+		System.out.println(hand.getFlag());
+	}
 	
 	/**
 	 * 测试创建List

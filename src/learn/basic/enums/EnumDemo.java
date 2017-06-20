@@ -1,5 +1,7 @@
 package learn.basic.enums;
 
+import learn.basic.xml.Book;
+
 
 public enum EnumDemo {
 	hosuccess(1, "已经交接"), hofailure(0, "未交接	");
@@ -13,7 +15,7 @@ public enum EnumDemo {
 		this.flag = flag;
 		this.desc = desc;
 	}
-
+	
 	public Integer getFlag() {
 
 		return flag;

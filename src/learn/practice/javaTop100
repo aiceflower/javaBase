@@ -35,4 +35,29 @@
 		8.wait()和sleep()的区别
 		9.能否在一个构造器( constructor )中调用另一个构造器
 		10.finally 代码块总会被执行么
+	读后感:2017-06-19
+		1.对象是否相等用==比较，内容是否相等用equals相比，字面量可以用==比较， "abc"=="abc" //true
+		2.使用treeMap传入比较器，或使用LinkedHashMap存入使用Collections.sort(list,比较器);list为LinkedList来比较
+		    具体可查看 MapToList 中的sortByValue方法
+		3.HashMap线程不安全的，效率高，可存入nuul键，null值，HashTable线程安全的，效率低，不可存入null键，null值
+		4.使用System.arraycopy可实现,创建泛型数组的方式:(T[]) java.lang.reflect.Array.newInstance(t.getClass().getComponentType(), len);
+		5.不支持，但可使用null+判断的方式代替
+		6.使用Math.random();或Random.nextInt(value);可实现
+		7.属性全为私有属性，有对应的getter,setter方法，有一个公有的无参构造器，符合这样要求这样的类为JavaBean
+		8.wait为释放资源，sleep不会释放资源，wait需要别人唤醒，sleep一段时间后会自己苏醒
+		9.可以，但是必需写在构造器的第一行
+		10.总会执行，除非执行了System.exit();
+第三天：2017-06-19
+	问题:2017-06-19
+		1.如何将String转换为enum
+		2.在Java中声明数组
+		3.反射是什么及其用途
+			 反射：主要是指程序可以访问、检测和修改它本身状态或行为的一种能力。在java中，通过反射，能够在"运行态"动态获得任意一个类的所有属性和方法，动态地调用对象的方法。
+		4.为什么不能用string类型进行switch判断
+		5.比较java枚举成员使用equal还是==
+		6.用java怎么创建一个文件并向该文件写文本内容
+		7.serialVersionUID 有什么作用？该如何使用？
+		8.为什么Java的Vector类被认为是过时的或者废弃的
+		9.Java的foreach循环是如何工作的
+		10.为什么相减这两个时间（1927年）会得到奇怪的结果
 	读后感:
