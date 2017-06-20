@@ -1,12 +1,22 @@
 package learn.basic.array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Array{
 
+	/**
+	 * 创建泛型数组
+	 * @param c
+	 * @param len
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] getArray(Class<? extends T> c,int len){
+		return (T[]) java.lang.reflect.Array.newInstance(c, len);
+	}
+	
 	/**
 	 * 数组转换为集合,可以继续添加新的元素
 	 * 

@@ -52,7 +52,6 @@
 		1.如何将String转换为enum
 		2.在Java中声明数组
 		3.反射是什么及其用途
-			 反射：主要是指程序可以访问、检测和修改它本身状态或行为的一种能力。在java中，通过反射，能够在"运行态"动态获得任意一个类的所有属性和方法，动态地调用对象的方法。
 		4.为什么不能用string类型进行switch判断
 		5.比较java枚举成员使用equal还是==
 		6.用java怎么创建一个文件并向该文件写文本内容
@@ -60,4 +59,26 @@
 		8.为什么Java的Vector类被认为是过时的或者废弃的
 		9.Java的foreach循环是如何工作的
 		10.为什么相减这两个时间（1927年）会得到奇怪的结果
-	读后感:
+	读后感:2017-06-20
+		1.使用Enum.valueOf(clazz,str);
+		2.1):new int[3];2):{1,2,3};3):new int[]{1,2,3,};
+		3. 反射：主要是指程序可以访问、检测和修改它本身状态或行为的一种能力。在java中，通过反射，能够在"运行态"动态获得任意一个类的所有属性和方法，动态地调用对象的方法。
+		4.jdk1.7以后可以使用String进行switch判断，但底层也是原string的hashCode(int值)，在jdk1.7以前可以使用枚举实现string进行switch判断
+		5.可以使用equals也可以使用==，equals底层使用的也是==，因为每个枚举常量只有一个实例
+		6.java7中可以使用Path file = Paths.get("the-file-name.txt");Files.write(file, lines, Charset.forName("UTF-8"));来实现向文件中写内容
+		7.对象序列化的两个用途：1.生成字节码，保存到指定介质上。2.用于网络传输
+		serialVersionUID 是 Java 为每个序列化类产生的版本标识，可用来保证在反序列时，发送方发送的和接受方接收的是可兼容的对象。如果接收方接收的类的 serialVersionUID 与发送方发送的 serialVersionUID 不一致，进行反序列时会抛出 InvalidClassException。
+		不同的jdk编译会生成不同的serialVersionUID，所以建议在每个序列化类中显示指定一个serialVersionUID
+		8.Vector是线程安全的，其中的每个方法执行起来都非常耗用资源
+		9.foreach是使用Iterator来实现遍历的，可以使用foreach遍历的对象必须实现Iterable接口
+		10.上海时区出错导致的，在1927年12月31日的午夜，时钟回调了5分钟零52秒
+第四天：2017-06-20
+	问题：2017-06-20
+		1.该什么时候使用 ThreadLocal变量，它是如何工作的
+		2.servlets的运行原理
+		3.如何计算MD5值
+		4.Java中软引用和弱引用的区别
+		5.JSF, Servlet 和 JSP (三种技术)有什么区别
+		6.Java内部类和嵌套静态类
+		7.@Component, @Repository, @Service的区别
+		8.如何创建泛型java数组

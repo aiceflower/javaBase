@@ -1,8 +1,5 @@
 package learn.basic.enums;
 
-import learn.basic.xml.Book;
-
-
 public enum EnumDemo {
 	hosuccess(1, "已经交接"), hofailure(0, "未交接	");
 
