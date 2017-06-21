@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class MapToList {
+public class MapUtil {
 	public static void main(String[] args) {
 		Map<Double, Double> s = new HashMap<Double, Double>();
 		s.put(1.1, 2.3);
@@ -95,4 +95,10 @@ public class MapToList {
 		return result;
 	}
 
+	/**
+	 * 获取不可修改的Map
+	 */
+	public static <K,V> Map<K,V> getUnModifiableMap(Map<? extends K,? extends V> map){
+		return Collections.unmodifiableMap(map);
+	}
 }

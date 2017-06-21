@@ -45,6 +45,23 @@ import org.w3c.dom.Text;
 public class JunitTest {
 	
 	/**
+	 * 测试不可修改的Map
+	 */
+	@Test
+	public void testUnModifiableMap(){
+		@SuppressWarnings("serial")
+		Map<String,Object> map = new HashMap<String, Object>(){
+			{
+				put("zhangsan",12);
+				put("lisi",15);
+			}
+		};
+		Map<String, Object> map2 = Collections.unmodifiableMap(map);
+		map2.put("wangwu", 18);//这句话报错
+		System.out.println(map2);
+	}
+	
+	/**
 	 * 测试创建泛型数组
 	 */
 	@Test
