@@ -22,7 +22,10 @@ public class MapUtil {
 		System.out.println(s);
 		Map<Double, Double> sortByValue = sortBykey(s);
 		System.out.println(sortByValue);
+		//
 		sortByValue = sortByValue(s);
+		//比较器
+		sortByValue = sortByComValue(s);
 		System.out.println(sortByValue);
 	}
 
@@ -79,11 +82,14 @@ public class MapUtil {
 	 * @param map,待排序的map
 	 * @return，排序后的map
 	 */
-	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(
+	public static <K extends Comparable<? super K>, V extends Comparable<? super V>> Map<K, V> sortByValue(
 			Map<K, V> map) {
 		List<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>(map.entrySet());
 		Collections.sort(list, new Comparator<Map.Entry<K, V>>() {
 			public int compare(Map.Entry<K, V> o1, Map.Entry<K, V> o2) {
+				if((o1.getValue()).compareTo(o2.getValue())==0){
+					return o1.getKey().compareTo(o2.getKey());
+				}
 				return (o1.getValue()).compareTo(o2.getValue());
 			}
 		});
@@ -101,4 +107,43 @@ public class MapUtil {
 	public static <K,V> Map<K,V> getUnModifiableMap(Map<? extends K,? extends V> map){
 		return Collections.unmodifiableMap(map);
 	}
+	
+	/**
+	 * 根据比较器排序
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static <K extends Comparable<K>,V extends Comparable<V>> Map<K,V> sortByComValue(Map<? extends K, ? extends V> map){
+		Comparator<K> mc = new MyComparator(map);
+		Map<K, V> tree = new TreeMap<K, V>(mc);
+		tree.putAll(map);
+		return tree;
+	}
+	
+	/**
+	 * 比较器
+	 * @author pillow
+	 *
+	 * @param <K>
+	 * @param <V>
+	 */
+	private static class MyComparator<K extends Comparable<K>,V extends Comparable<V>> implements Comparator<K>{
+
+		private Map<K, V> map;
+		
+		public MyComparator(Map<K, V> map) {
+			this.map = map;
+		}
+		
+		@Override
+		public int compare(K k1, K k2) {
+			if(map.get(k1).compareTo(map.get(k2))==0){
+				return k1.compareTo(k2);
+			}else{
+				return map.get(k1).compareTo(map.get(k2));
+			}
+		}
+		
+	}
 }
+
+

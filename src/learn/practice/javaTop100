@@ -82,3 +82,5 @@
 		6.Java内部类和嵌套静态类
 		7.@Component, @Repository, @Service的区别
 		8.如何创建泛型java数组
+//继承或实现?
+仅仅当你确实想要重写（override）一些已有行为时，才使用继承，否则请使用接口。

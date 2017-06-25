@@ -1,10 +1,6 @@
 package learn.basic.junit;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +26,9 @@ import learn.basic.encryption.MD5Util;
 import learn.basic.enums.EnumDemo;
 import learn.basic.enums.EnumSingleton;
 import learn.basic.enums.EnumUtils;
+import learn.basic.file.FileUtil;
 import learn.basic.math.MathUtil;
+import learn.basic.string.CommonRegex;
 import learn.basic.string.StringUtil;
 import learn.basic.xml.Book;
 
@@ -44,6 +42,45 @@ import org.w3c.dom.Text;
 
 public class JunitTest {
 	
+	/**
+	 * 
+	 */
+	@Test
+	public void testReg(){
+		String str = "892604768";
+		String s = StringUtil.getStrByReg(str, CommonRegex.QQ);
+		System.out.println(s);
+	}
+	/**
+	 * 测试整数前补零
+	 */
+	@Test
+	public void testLPadZero(){
+		String l = StringUtil.leftPad(5, 4,'x');
+		System.out.println(l);
+		String s = StringUtil.lPadZero(5, 4);
+		System.out.println(s);
+	}
+	
+	/**
+	 * 测试把异常转换为字符串
+	 */
+	@Test
+	public void TestThrowable(){
+		try {
+			System.out.println(3/0);
+		} catch (Exception e) {
+			System.out.println(StringUtil.parseThrowableToStr(e));
+		}
+	}
+	/**
+	 * 测试java生成数字字符串
+	 */
+	@Test
+	public void testMapValue(){
+		System.out.println(StringUtil.nextString(32));//快
+		System.out.println(StringUtil.nextSessionId(34).length());//安全
+	}
 	/**
 	 * 测试不可修改的Map
 	 */
@@ -126,13 +163,11 @@ public class JunitTest {
 	@Test
 	public void testCreateFile() {
 		List<String> lines = Arrays.asList("one line", "two line");
-		Path file = Paths.get("C:\\createFile.txt");
 		try {
-			Files.write(file, lines, Charset.forName("utf-8"));
+			FileUtil.writeFile("c:\\test.txt", lines);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("write end.");
 	}
 
 	/**
