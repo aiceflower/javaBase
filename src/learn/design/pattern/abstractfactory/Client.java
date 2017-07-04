@@ -5,7 +5,9 @@ public class Client {
 		//圣诞系列男孩
 		MCFactory mc = new MCFactory();
 		Boy boy = mc.getBoy();
+		Girl gir = mc.getGirl();
 		boy.drawBoy();
+		gir.drowGirl();
 		
 		System.out.println("-------------------------");
 		
@@ -22,5 +24,14 @@ public class Client {
 		Girl qxGirl = qx.getGirl();
 		qxBoy.drawBoy();
 		qxGirl.drowGirl();
+		
+		System.out.println("-------------------------");
+		
+		//复习增加端午系列
+		DWFactory dw = new DWFactory();
+		Boy dwBoy = dw.getBoy();
+		Girl dwGirl = dw.getGirl();
+		dwBoy.drawBoy();
+		dwGirl.drowGirl();
 	}
 }
