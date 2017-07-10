@@ -42,8 +42,17 @@ import org.w3c.dom.Text;
 
 public class JunitTest {
 	
+	/*
+	 * ≤‚ ‘String
+	 */
+	@Test
+	public void testString() throws Exception {
+		String str = "abcdef";
+		System.out.println();
+	}
+	
 	/**
-	 * 
+	 *≤‚ ‘’˝‘Ú 
 	 */
 	@Test
 	public void testReg(){
