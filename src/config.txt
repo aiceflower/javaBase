@@ -1,2 +1,3 @@
 test=resource
 url=jdbc
+测试git下载部分文件
