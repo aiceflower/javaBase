@@ -1,10 +1,7 @@
-package learn.basic.base;
-
-
-public class ·½·¨ËÀÑ­»· {
+public class æ–¹æ³•æ­»å¾ªç¯ {
 	private int i = 1;
 	public static void main(String[] args) {
-		new ·½·¨ËÀÑ­»·().test();
+		new æ–¹æ³•æ­»å¾ªç¯().test();
 	}
 
 	public void test() {
@@ -13,10 +10,10 @@ public class ·½·¨ËÀÑ­»· {
 	}
 }
 
-class ¶ÔÏóÁĞÑ­»· {
+class å¯¹è±¡åˆ—å¾ªç¯ {
 	@SuppressWarnings("unused")
-	private ¶ÔÏóÁĞÑ­»· ËÀ = new ¶ÔÏóÁĞÑ­»·();
+	private å¯¹è±¡åˆ—å¾ªç¯ æ­» = new å¯¹è±¡åˆ—å¾ªç¯();
 	public static void main(String[] args) {
-		new ¶ÔÏóÁĞÑ­»·();
+		new å¯¹è±¡åˆ—å¾ªç¯();
 	}
 }
